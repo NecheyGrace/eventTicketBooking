@@ -122,49 +122,45 @@ const MultiStepForm = () => {
     setStep(1);
   };
   return (
-    <form className="max-w-[700px] mx-auto p-6 border border-solid border-[#0E464F] rounded-[40px] bg-[#041E23] shadow-md mt-10">
+    <form className="max-w-[700px] mx-auto p-12 border border-solid border-[#0E464F] rounded-[50px]  bg-[#041E23] shadow-md mt-[46px]">
       <div className="flex justify-between items-center text-[#fff]">
-        <h2 className="text-[32px] font-['JejuMyeongjo'] font-normal mb-4">
+        <h2 className="text-[32px] font-['JejuMyeongjo'] font-normal ">
           Ticket Selection
         </h2>
 
         <p className="text-[16px] font-normal">Step 1/3</p>
       </div>
 
-      <div className="flex items-center justify-between mb-4">
-        <span
-          className={`h-1 w-[232px] ${
-            step >= 1 ? "bg-[#24A0B5]" : "bg-[#0E464F]"
-          }`}
-        ></span>
-        <span
-          className={`h-1 w-[232px] ${
-            step >= 2 ? "bg-[#24A0B5]" : "bg-[#0E464F]"
-          }`}
-        ></span>
-        <span
-          className={`h-1 w-[232px] ${
-            step === 3 ? "bg-[#24A0B5]" : "bg-[#0E464F]"
-          }`}
-        ></span>
+      <div className="flex  rounded-full bg-[#0E464F]  items-center justify-between mb-4 overflow-hidden">
+        {step >= 1 && (
+          <span className={`h-1 w-[36%] rounded-full bg-[#24A0B5]`} />
+        )}
+        {step >= 2 && (
+          <span className={`h-1 w-[68%] rounded-full bg-[#24A0B5]`} />
+        )}
+        {step >= 3 && (
+          <span className={`h-1 w-[100%] rounded-full bg-[#24A0B5]`} />
+        )}
       </div>
 
       {step === 1 && (
-        <div className=" w-[604px] flex flex-col justify-center items-center gap-8 self-stretch p-6 rounded-[32px] border border-[#0E464F] bg-[#08252B]">
-          <div className="flex h-[200px] p-6 flex-col items-center gap-2 self-stretch text-center rounded-[24px] border-r-2 border-b-2 border-l-2 text-grey-98 border-[#07373F] bg-[#0A0C11]/10 bg-[radial-gradient(57.42%_106.59%_at_14.02%_32.06%,_rgba(36,_160,_181,_0.20)_0%,_rgba(36,_160,_181,_0)_100%)] backdrop-blur-[7px]">
-            <h2 className=" text-center font-road-rage text-[40px] font-normal leading-none ">
+        <div className=" w-[604px] flex flex-col gap-3 self-stretch p-6 rounded-[32px]  mt-7 border border-[#0E464F] bg-[#08252B]">
+          <div className="flex p-6 flex-col items-center gap-2 self-stretch text-center rounded-[24px] border-r-2 border-b-2 border-l-2 text-grey-98 border-[#07373F] bg-[#0A0C11]/10 bg-[radial-gradient(57.42%_106.59%_at_14.02%_32.06%,_rgba(36,_160,_181,_0.20)_0%,_rgba(36,_160,_181,_0)_100%)] backdrop-blur-[7px]">
+            <h2 className=" text-center font-road-rage text-[62px] font-normal leading-none ">
               Techember Fest ”25
             </h2>
-            <p className="text-[16px] font-['Roboto'] py-[8px]">
-              Join us for an unforgettable experience at [Event Name]! Secure
-              your spot now.
+            <p className="text-[16px] text-center py-[8px]">
+              Join us for an unforgettable experience at <br /> [Event Name]!
+              Secure your spot now.
             </p>
-            <p className="text-[16px] font-['Roboto']">
+            <p className="text-[16px]">
               📍 [Event Location] | | March 15, 2025 | 7:00 PM
             </p>
           </div>
+          <div className="bg-[#07373F] h-1 my-[18px] w-full" />
+          <p className="text-grey-98 text-[16px] ml-1">Select Ticket Type:</p>
           <div>
-            <div className="grid grid-cols-3 gap-4 mb-4">
+            <div className="custom-cont mb-4  ">
               <div
                 onClick={() =>
                   setFormData({
@@ -173,21 +169,19 @@ const MultiStepForm = () => {
                     ticketPrice: "Free",
                   })
                 }
-                className={`cursor-pointer p-4 rounded-lg border-2 ${
+                className={`custom-card p-12 cursor-pointer rounded-lg border-2 ${
                   formData.ticketType === "Basic"
-                    ? "border-[#24A0B5] bg-[#24A0B5]/10"
+                    ? "border-[#24A0B5] bg-[#12464E]"
                     : "border-[#0E464F]"
                 }`}
               >
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Basic Pass
-                </h3>
-                <p className="text-[#24A0B5] text-2xl font-bold mb-2">Free</p>
-                <ul className="text-gray-300 text-sm">
-                  <li>• General Admission</li>
-                  <li>• Access to Main Hall</li>
-                  <li>• Welcome Kit</li>
-                </ul>
+                <p className="text-xl font-normal text-[#fff] text-[24px]">
+                  Free
+                </p>
+                <p className="text-[#FAFAFA] text-[16px] font-normal uppercase">
+                  Regular Access <br />{" "}
+                  <p className="text-[#D9D9D9] text-sm">20/52</p>
+                </p>
               </div>
 
               <div
@@ -198,21 +192,19 @@ const MultiStepForm = () => {
                     ticketPrice: "$150",
                   })
                 }
-                className={`cursor-pointer p-4 rounded-lg border-2 ${
+                className={` custom-card cursor-pointer p-4 rounded-lg border-2 ${
                   formData.ticketType === "Standard"
-                    ? "border-[#24A0B5] bg-[#24A0B5]/10"
+                    ? "border-[#24A0B5] bg-[#12464E]"
                     : "border-[#0E464F]"
                 }`}
               >
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Standard Pass
-                </h3>
-                <p className="text-[#24A0B5] text-2xl font-bold mb-2">$150</p>
-                <ul className="text-gray-300 text-sm">
-                  <li>• All Basic Features</li>
-                  <li>• Workshop Access</li>
-                  <li>• Lunch Included</li>
-                </ul>
+                <p className="text-[#fff] text-base font-normal uppercase text-[24px]">
+                  $150
+                </p>
+                <p className="text-[#FAFAFA] text-base font-normal uppercase">
+                  VIP Access <br />{" "}
+                  <p className="text-[#D9D9D9] text-sm">20/52</p>
+                </p>
               </div>
 
               <div
@@ -223,49 +215,52 @@ const MultiStepForm = () => {
                     ticketPrice: "$300",
                   })
                 }
-                className={`cursor-pointer p-4 rounded-lg border-2 ${
+                className={` custom-card cursor-pointer p-4 rounded-lg border-2 ${
                   formData.ticketType === "Premium"
-                    ? "border-[#24A0B5] bg-[#24A0B5]/10"
+                    ? "border-[#24A0B5] bg-[#12464E]"
                     : "border-[#0E464F]"
                 }`}
               >
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Premium Pass
-                </h3>
-                <p className="text-[#24A0B5] text-2xl font-bold mb-2">$300</p>
-                <ul className="text-gray-300 text-sm">
-                  <li>• All Standard Features</li>
-                  <li>• VIP Seating</li>
-                  <li>• Exclusive Networking</li>
-                </ul>
+                <p className="text-[#fff] text-base font-normal  uppercase text-[24px]">
+                  $300
+                </p>
+                <p className="text-[#FAFAFA] text-base font-normal  uppercase">
+                  VVIP Access <br />{" "}
+                  <p className="text-[#D9D9D9] text-sm">20/52</p>
+                </p>
               </div>
             </div>
-            <p className="text-center mt-2">
-              <strong>Ticket Type:</strong> {formData.ticketType} (
-              {formData.ticketPrice})
-            </p>
+
             {errors.ticketType && (
-              <p className="text-red-500">{errors.ticketType}</p>
+              <p className="text-[#FF4D4D] text-sm">{errors.ticketType}</p>
             )}
+            <p className="text-white">Number of Tickets</p>
             <select
               name="ticketCount"
               value={formData.ticketCount}
               onChange={handleChange}
-              className="w-full p-2 border rounded mt-3"
+              className="w-full outline-none bg-transparent text-white p-2 border border-[#0E464F] rounded-lg  mt-3"
             >
-              <option value="">Number of Tickets</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+              <option value="">select the number of tickets</option>
+              <option value="">1</option>
+              <option value="1">2</option>
+              <option value="2">3</option>
             </select>
             {errors.ticketCount && (
               <p className="text-red-500">{errors.ticketCount}</p>
             )}
-            <div className="flex justify-between mt-4">
+            <div className="flex justify-between mt-8 gap-4">
               <button
                 type="button"
                 onClick={handleNext}
-                className="bg-blue-500 text-white px-4 py-2 rounded"
+                className="bg-transparent w-full border border-[#24A0B5] text-[#24A0B5] px-4 py-2 rounded-lg"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="bg-[#24A0B5] w-full text-white px-4 py-2 rounded-lg"
               >
                 Next
               </button>

@@ -3,8 +3,8 @@ import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <div className=" flex justify-between items-centerborder-solid border-[#197686] border-[1px] px-[16px] py-[12px] rounded-3xl">
-      <div className="flex justify-center items-center px-[8px]">
+    <div className=" flex justify-between items-centerborder-solid border-[#197686] border-[1px] px-4 py-[12px] rounded-3xl">
+      <div className="space-x-2 flex items-center">
         <img
           className="  border-[#0E464F] border-solid border-[1px] rounded-xl bg-[#052F35] px-4 py-3"
           src={Logo}
@@ -75,7 +75,7 @@ const Header = () => {
         </svg>
       </div>
 
-      <div className="flex justify-center items-center text-[#B3B3B3] gap-8 font-['JejuMyeongjos']">
+      <div className="flex justify-center items-center text-[#B3B3B3] text-lg gap-8 font-['JejuMyeongjos']">
         <Link to="/events" className="hover:text-[#FFF] transition-colors">
           Events
         </Link>
@@ -87,13 +87,13 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="flex justify-center items-center">
-        <button className="flex justify-center items-center text-[#0A0C11] bg-[#FFF] px-[24px] py-[16px] border border-[rgba(213,234,0,0.10)] rounded-xl">
+      <div className="flex justify-between items-center">
+        <button className="flex w-[169px] justify-center h-full items-center text-[#0A0C11] bg-[#FFF]  border border-[rgba(213,234,0,0.10)] rounded-xl">
           MY TICKETS
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="8"
+            width="28"
+            height="18"
             viewBox="0 0 18 8"
             fill="none"
             className="pl-[10px]"
