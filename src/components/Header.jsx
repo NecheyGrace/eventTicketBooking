@@ -3,7 +3,7 @@ import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <div className=" flex justify-between items-centerborder-solid border-[#197686] border-[1px] px-4 py-[12px] rounded-3xl">
+    <div className="mx-3 flex justify-between items-centerborder-solid border-[#197686] border-[1px] px-4 py-[12px] rounded-3xl">
       <div className="space-x-2 flex items-center">
         <img
           className="  border-[#0E464F] border-solid border-[1px] rounded-xl bg-[#052F35] px-4 py-3"
@@ -75,7 +75,7 @@ const Header = () => {
         </svg>
       </div>
 
-      <div className="flex justify-center items-center text-[#B3B3B3] text-lg gap-8 font-['JejuMyeongjos']">
+      <div className=" xl:flex justify-center hidden items-center text-[#B3B3B3] text-lg gap-8 font-['JejuMyeongjos']">
         <Link to="/events" className="hover:text-[#FFF] transition-colors">
           Events
         </Link>

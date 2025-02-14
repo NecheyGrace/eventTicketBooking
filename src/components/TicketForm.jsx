@@ -122,45 +122,68 @@ const MultiStepForm = () => {
     setStep(1);
   };
   return (
-    <form className="max-w-[700px] mx-auto p-12 border border-solid border-[#0E464F] rounded-[50px]  bg-[#041E23] shadow-md mt-[46px]">
-      <div className="flex justify-between items-center text-[#fff]">
-        <h2 className="text-[32px] font-['JejuMyeongjo'] font-normal ">
-          Ticket Selection
-        </h2>
-
-        <p className="text-[16px] font-normal">Step 1/3</p>
+    <form className="max-w-[700px] mx-auto p-12 border border-solid border-[#0E464F] rounded-[50px] bg-[#08252B]  xl:bg-[#041E23] shadow-md mt-8 xl:mt-[46px]">
+      <div>
+        {step === 1 && (
+          <div className=" xl:flex xl:justify-between xl:items-center text-[#fff]">
+            <h2 className="text-[32px] font-['JejuMyeongjo'] font-normal ">
+              Ticket Selection
+            </h2>
+            <p className="text-[16px] font-normal my-2 xl:my-0">Step 1/3</p>
+          </div>
+        )}
+        {step === 2 && (
+          <div className=" xl:flex xl:justify-between xl:items-center text-[#fff]">
+            <h2 className="text-[32px] font-['JejuMyeongjo'] font-normal ">
+              Attendee Details
+            </h2>
+            <p className="text-[16px] font-normal">Step 2/3</p>
+          </div>
+        )}
+        {step === 3 && (
+          <div className=" xl:flex xl:justify-between xl:items-center text-[#fff]">
+            <h2 className="text-[32px] font-['JejuMyeongjo'] font-normal ">
+              Ready
+            </h2>
+            <p className="text-[16px] font-normal">Step 1/3</p>
+          </div>
+        )}
       </div>
 
       <div className="flex  rounded-full bg-[#0E464F]  items-center justify-between mb-4 overflow-hidden">
-        {step >= 1 && (
+        {step === 1 && (
           <span className={`h-1 w-[36%] rounded-full bg-[#24A0B5]`} />
         )}
-        {step >= 2 && (
-          <span className={`h-1 w-[68%] rounded-full bg-[#24A0B5]`} />
+        {step === 2 && (
+          <span className={`h-1 w-[50%] rounded-full bg-[#24A0B5]`} />
         )}
-        {step >= 3 && (
+        {step === 3 && (
           <span className={`h-1 w-[100%] rounded-full bg-[#24A0B5]`} />
         )}
       </div>
 
       {step === 1 && (
-        <div className=" w-[604px] flex flex-col gap-3 self-stretch p-6 rounded-[32px]  mt-7 border border-[#0E464F] bg-[#08252B]">
+        <div className=" xl:w-[604px] flex flex-col gap-3 self-stretch xl:p-6 rounded-[32px]  mt-7 xl:border xl:border-[#0E464F] xl:bg-[#08252B]">
           <div className="flex p-6 flex-col items-center gap-2 self-stretch text-center rounded-[24px] border-r-2 border-b-2 border-l-2 text-grey-98 border-[#07373F] bg-[#0A0C11]/10 bg-[radial-gradient(57.42%_106.59%_at_14.02%_32.06%,_rgba(36,_160,_181,_0.20)_0%,_rgba(36,_160,_181,_0)_100%)] backdrop-blur-[7px]">
-            <h2 className=" text-center font-road-rage text-[62px] font-normal leading-none ">
+            <h2 className=" text-center font-road-rage text-[48px] xl:text-[62px] font-normal leading-none ">
               Techember Fest ”25
             </h2>
-            <p className="text-[16px] text-center py-[8px]">
-              Join us for an unforgettable experience at <br /> [Event Name]!
-              Secure your spot now.
+            <p className="text-[14px] xl:text-[16px] text-center py-[8px]">
+              Join us for an unforgettable <br className="lg:hidden " />{" "}
+              experience at <br className="hidden xl:flex" /> [Event Name]!
+              Secure
+              <br className="lg:hidden" /> your spot now.
             </p>
-            <p className="text-[16px]">
-              📍 [Event Location] | | March 15, 2025 | 7:00 PM
+            <p className="text-[16px] flex">
+              📍 [Event Location] <br className="lg:hidden" />
+              <span className="lg:flex hidden mx-2"> | | </span> March 15, 2025
+              | 7:00 PM
             </p>
           </div>
           <div className="bg-[#07373F] h-1 my-[18px] w-full" />
           <p className="text-grey-98 text-[16px] ml-1">Select Ticket Type:</p>
           <div>
-            <div className="custom-cont mb-4  ">
+            <div className="custom-cont mb-4 gap-4 xl:gap-0 flex flex-col   lg:flex-row">
               <div
                 onClick={() =>
                   setFormData({
@@ -169,16 +192,16 @@ const MultiStepForm = () => {
                     ticketPrice: "Free",
                   })
                 }
-                className={`custom-card p-12 cursor-pointer rounded-lg border-2 ${
+                className={`custom-card xl:w-[158px] w-full p-12 cursor-pointer rounded-lg border-2 ${
                   formData.ticketType === "Basic"
                     ? "border-[#24A0B5] bg-[#12464E]"
                     : "border-[#0E464F]"
                 }`}
               >
-                <p className="text-xl font-normal text-[#fff] text-[24px]">
+                <p className="text-[24px] font-semibold xl:text-xl  xl:font-normal text-[#fff] ">
                   Free
                 </p>
-                <p className="text-[#FAFAFA] text-[16px] font-normal uppercase">
+                <p className="text-[#FAFAFA] text-[16px] font-normal -mt-1 uppercase">
                   Regular Access <br />{" "}
                   <p className="text-[#D9D9D9] text-sm">20/52</p>
                 </p>
@@ -192,16 +215,16 @@ const MultiStepForm = () => {
                     ticketPrice: "$150",
                   })
                 }
-                className={` custom-card cursor-pointer p-4 rounded-lg border-2 ${
+                className={`xl:w-[158px] w-full custom-card cursor-pointer p-4 rounded-lg border-2 ${
                   formData.ticketType === "Standard"
                     ? "border-[#24A0B5] bg-[#12464E]"
                     : "border-[#0E464F]"
                 }`}
               >
-                <p className="text-[#fff] text-base font-normal uppercase text-[24px]">
+                <p className="text-[24px] font-semibold xl:text-xl  xl:font-normal text-[#fff]">
                   $150
                 </p>
-                <p className="text-[#FAFAFA] text-base font-normal uppercase">
+                <p className="text-[#FAFAFA] text-base font-normal -mt-1 uppercase">
                   VIP Access <br />{" "}
                   <p className="text-[#D9D9D9] text-sm">20/52</p>
                 </p>
@@ -215,16 +238,16 @@ const MultiStepForm = () => {
                     ticketPrice: "$300",
                   })
                 }
-                className={` custom-card cursor-pointer p-4 rounded-lg border-2 ${
+                className={`xl:w-[158px] w-full custom-card cursor-pointer p-4 rounded-lg border-2 ${
                   formData.ticketType === "Premium"
                     ? "border-[#24A0B5] bg-[#12464E]"
                     : "border-[#0E464F]"
                 }`}
               >
-                <p className="text-[#fff] text-base font-normal  uppercase text-[24px]">
+                <p className="text-[24px] font-semibold xl:text-xl  xl:font-normal text-[#fff]">
                   $300
                 </p>
-                <p className="text-[#FAFAFA] text-base font-normal  uppercase">
+                <p className="text-[#FAFAFA] text-base font-normal -mt-1 uppercase">
                   VVIP Access <br />{" "}
                   <p className="text-[#D9D9D9] text-sm">20/52</p>
                 </p>
@@ -239,28 +262,28 @@ const MultiStepForm = () => {
               name="ticketCount"
               value={formData.ticketCount}
               onChange={handleChange}
-              className="w-full outline-none bg-transparent text-white p-2 border border-[#0E464F] rounded-lg  mt-3"
+              className="w-full outline-none bg-transparent text-[#24A0B5] p-2 border border-[#0E464F] rounded-lg  mt-3"
             >
               <option value="">select the number of tickets</option>
-              <option value="">1</option>
-              <option value="1">2</option>
-              <option value="2">3</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
             </select>
             {errors.ticketCount && (
               <p className="text-red-500">{errors.ticketCount}</p>
             )}
-            <div className="flex justify-between mt-8 gap-4">
+            <div className="flex flex-col-reverse lg:flex-row   justify-between mt-8 lg:gap-4">
               <button
                 type="button"
                 onClick={handleNext}
-                className="bg-transparent w-full border border-[#24A0B5] text-[#24A0B5] px-4 py-2 rounded-lg"
+                className="bg-transparent w-full border border-[#24A0B5] text-[#24A0B5] px-4 py-3 lg:py-2 rounded-lg"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleNext}
-                className="bg-[#24A0B5] w-full text-white px-4 py-2 rounded-lg"
+                className="bg-[#24A0B5] w-full text-white px-4 mb-4 lg:mb-0  py-3 lg:py-2 rounded-lg"
               >
                 Next
               </button>
@@ -270,76 +293,150 @@ const MultiStepForm = () => {
       )}
 
       {step === 2 && (
-        <div>
-          <h2 className="text-xl font-semibold mb-4">
-            Upload Profile & Enter Details
-          </h2>
-          <input
-            type="file"
-            onChange={handleFileChange}
-            className="w-full p-2 border rounded"
-          />
-          {errors.profileImage && (
-            <p className="text-red-500">{errors.profileImage}</p>
-          )}
-          {uploading && <p>Uploading image...</p>}
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full p-2 border rounded mt-3"
-          />
-          {errors.name && <p className="text-red-500">{errors.name}</p>}
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-            className="w-full p-2 border rounded mt-3"
-          />
-          {errors.email && <p className="text-red-500">{errors.email}</p>}
-          <textarea
-            name="specialRequest"
-            placeholder="Special Request?"
-            value={formData.specialRequest}
-            onChange={(e) =>
-              setFormData({ ...formData, specialRequest: e.target.value })
-            }
-            className="w-full p-2 border rounded mt-3"
-          ></textarea>
-          <div className="flex justify-between mt-4">
+        <div className="flex flex-col justify-center items-start gap-8  p-6 rounded-[32px] border border-[#0E464F] bg-[#08252B]">
+          <div className="flex p-6 flex-col pb-10  gap-2 w-full rounded-[24px] border-r-2 border-b-2 border text-grey-98 border-[#07373F] bg-[#052228]">
+            <h2 className="text-lg font-semibold mb-4 text-white">
+              Upload Profile Photo
+            </h2>
+
+            <div className="w-full relative  items-center justify-center flex mt-3">
+              <div className="absolute  h-[240px]  flex w-full items-center justify-center">
+                <div className="h-[240px] w-[240px] bg-[#0E464F] flex text-center gap-4 flex-col items-center justify-center rounded-[32px] border-4 border-[#24A0B580]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                  >
+                    <path
+                      d="M25.2639 14.816C24.6812 10.2267 20.7505 6.66669 16.0052 6.66669C12.3305 6.66669 9.13854 8.81469 7.68121 12.2C4.81721 13.056 2.67188 15.76 2.67188 18.6667C2.67188 22.3427 5.66254 25.3334 9.33854 25.3334H10.6719V22.6667H9.33854C7.13321 22.6667 5.33854 20.872 5.33854 18.6667C5.33854 16.7947 6.93721 14.9907 8.90254 14.6454L9.67721 14.5094L9.93321 13.7654C10.8705 11.0307 13.1972 9.33335 16.0052 9.33335C19.6812 9.33335 22.6719 12.324 22.6719 16V17.3334H24.0052C25.4759 17.3334 26.6719 18.5294 26.6719 20C26.6719 21.4707 25.4759 22.6667 24.0052 22.6667H21.3385V25.3334H24.0052C26.9465 25.3334 29.3385 22.9414 29.3385 20C29.337 18.8047 28.9347 17.6444 28.196 16.7047C27.4574 15.7649 26.425 15.0999 25.2639 14.816Z"
+                      fill="#FAFAFA"
+                    />
+                    <path
+                      d="M17.3385 18.6667V13.3334H14.6719V18.6667H10.6719L16.0052 25.3334L21.3385 18.6667H17.3385Z"
+                      fill="#FAFAFA"
+                    />
+                  </svg>
+                  <p>
+                    Drag & drop or click to
+                    <br /> upload
+                  </p>
+                </div>
+
+                <input
+                  type="file"
+                  id="image-upload"
+                  onChange={handleFileChange}
+                  className="opacity-0 absolute h-[240px] rounded-[32px]"
+                />
+              </div>
+              <div className="w-full bg-transparent lg:bg-black/20 h-[200px]"></div>
+            </div>
+            {errors.profileImage && (
+              <p className="text-red-500 mt-3">{errors.profileImage}</p>
+            )}
+            {uploading && <p>Uploading image...</p>}
+          </div>
+          <div className="bg-[#07373F] h-1 mt-[10px] w-full" />
+          <div className="w-full">
+            <p className="text-white ml-1">Enter your name</p>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+              className="w-full p-2 border h-12 rounded-xl text-white outline-none bg-transparent mt-[10px] border-[#07373F]"
+            />
+            {errors.name && <p className="text-red-500">{errors.name}</p>}
+          </div>
+          <div className="w-full">
+            <p className="text-white ml-1">Enter your email *</p>
+            <div className="flex items-center rounded-xl pl-2 gap-2 mt-[10px] border border-[#07373F]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M20 4H4C2.897 4 2 4.897 2 6V18C2 19.103 2.897 20 4 20H20C21.103 20 22 19.103 22 18V6C22 4.897 21.103 4 20 4ZM20 6V6.511L12 12.734L4 6.512V6H20ZM4 18V9.044L11.386 14.789C11.5611 14.9265 11.7773 15.0013 12 15.0013C12.2227 15.0013 12.4389 14.9265 12.614 14.789L20 9.044L20.002 18H4Z"
+                  fill="white"
+                />
+              </svg>
+              <input
+                type="email"
+                name="email"
+                placeholder="hello@avioflagos.io"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                className="w-full  h-12  bg-transparent  outline-none text-white placeholder:text-white/80"
+              />
+            </div>
+            {errors.name && <p className="text-red-500">{errors.email}</p>}
+          </div>
+          <div className="w-full">
+            <p className="text-white ml-1">Special request?</p>
+            <textarea
+              name="specialRequest"
+              placeholder="Textarea"
+              value={formData.specialRequest}
+              onChange={(e) =>
+                setFormData({ ...formData, specialRequest: e.target.value })
+              }
+              className="w-full p-[14px] resize-none outline-none rounded-xl mt-[10px] h-[127px] bg-transparent border border-[#07373F] placeholder:text-white/80 text-white"
+            />
+          </div>
+          <div className="flex justify-between  gap-4 w-full">
             <button
               type="button"
               onClick={handleBack}
-              className="bg-gray-300 px-4 py-2 rounded"
+              className="bg-transparent w-full border border-[#24A0B5] text-[#24A0B5] px-4 py-2 rounded-lg"
             >
               Back
             </button>
             <button
               type="button"
               onClick={handleNext}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
               disabled={uploading}
+              className="bg-[#24A0B5] w-full text-white px-4 py-2 rounded-lg"
             >
-              Next
+              Get My Free Ticket
             </button>
           </div>
         </div>
       )}
 
       {step === 3 && (
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Your Conference Ticket</h2>
-          <div id="ticket" className="border p-4 rounded-lg">
+        <div className="flex flex-col items-center">
+          <div className="text-white w-full flex flex-col items-center justify-center">
+            <h2 className="text-xl font-semibold mb-4 text-[32px]">
+              Your Ticket is Booked!
+            </h2>
+            <p className="text-white/80 text-[16px]">
+              Check your email for a copy or you can{" "}
+              <span className="font-bold">download</span>
+            </p>
+          </div>
+          <div id="ticket" className="border p-4 mt-4 w-1/2 rounded-lg ">
+            <h2 className=" text-center font-road-rage text-[34px] text-white font-normal leading-none ">
+              Techember Fest ”25
+            </h2>
+            <p className="text-[10px] text-white text-center">
+              📍 04 Rumens road, Ikoyi, Lagos
+            </p>
+            <p className="text-[10px] text-white text-center">
+              📅 March 15, 2025 | 7:00 PM
+            </p>
             <img
               src={formData.profileImage}
               alt="Profile"
-              className="w-24 h-24 rounded-full mx-auto mb-4"
+              className="w-[140px] h-[140px] rounded-lg border-4 border-[#24A0B5] mx-auto mb-4"
             />
             <p className="text-center text-lg font-medium">{formData.name}</p>
             <p className="text-center text-sm text-gray-600">

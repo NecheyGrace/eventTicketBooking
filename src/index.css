@@ -7,7 +7,7 @@
     border-radius: var(--Radius-reg-2, 12px);
     border: 1px solid #197686;
     display: flex;
-    width: 158px;
+
     height: 110px;
     padding: 12px;
     flex-direction: column;
@@ -15,7 +15,6 @@
     gap: 12px;
   }
   .custom-cont {
-    display: flex;
     padding: 16px;
     justify-content: space-between;
     align-items: center;
