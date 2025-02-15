@@ -293,7 +293,7 @@ const MultiStepForm = () => {
       )}
 
       {step === 2 && (
-        <div className="flex flex-col justify-center items-start gap-8  p-6 rounded-[32px] border border-[#0E464F] bg-[#08252B]">
+        <div className="flex flex-col justify-center items-start gap-8 pt-4  lg:p-6 rounded-[32px] lg:border lg:border-[#0E464F] bg-[#08252B]">
           <div className="flex p-6 flex-col pb-10  gap-2 w-full rounded-[24px] border-r-2 border-b-2 border text-grey-98 border-[#07373F] bg-[#052228]">
             <h2 className="text-lg font-semibold mb-4 text-white">
               Upload Profile Photo
@@ -301,7 +301,7 @@ const MultiStepForm = () => {
 
             <div className="w-full relative  items-center justify-center flex mt-3">
               <div className="absolute  h-[240px]  flex w-full items-center justify-center">
-                <div className="h-[240px] w-[240px] bg-[#0E464F] flex text-center gap-4 flex-col items-center justify-center rounded-[32px] border-4 border-[#24A0B580]">
+                <div className="lg:h-[240px] w-full h-full lg:w-[240px] bg-[#0E464F] flex text-center gap-4 flex-col items-center justify-center rounded-[32px] border-4 border-[#24A0B580]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="32"
@@ -392,11 +392,11 @@ const MultiStepForm = () => {
               className="w-full p-[14px] resize-none outline-none rounded-xl mt-[10px] h-[127px] bg-transparent border border-[#07373F] placeholder:text-white/80 text-white"
             />
           </div>
-          <div className="flex justify-between  gap-4 w-full">
+          <div className="flex flex-col-reverse lg:flex-row w-full   justify-between  lg:mt-0 gap-4">
             <button
               type="button"
               onClick={handleBack}
-              className="bg-transparent w-full border border-[#24A0B5] text-[#24A0B5] px-4 py-2 rounded-lg"
+              className="bg-transparent w-full border border-[#24A0B5] text-[#24A0B5] px-4 py-3 lg:py-2 rounded-lg"
             >
               Back
             </button>
@@ -404,7 +404,7 @@ const MultiStepForm = () => {
               type="button"
               onClick={handleNext}
               disabled={uploading}
-              className="bg-[#24A0B5] w-full text-white px-4 py-2 rounded-lg"
+              className="bg-[#24A0B5] w-full text-white px-4 py-3 lg:py-2 rounded-lg"
             >
               Get My Free Ticket
             </button>
